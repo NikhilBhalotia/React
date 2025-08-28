@@ -27,16 +27,19 @@ function App() {
   };
 
   return (
-    <div className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat">
+    <div
+      className="w-screen h-screen flex flex-wrap justify-center items-center bg-cover bg-center bg-fixed bg-no-repeat"
+      style={{ backgroundImage: "url('/background.jpg')" }}
+    >
       <div className="w-full">
-        <div className="w-full max-w-md mx-auto border border-gray-600 rounded-lg p-5 backdrop-blur-sm bg-white/30">
+        <div className="max-w-md mx-auto border border-gray-600 rounded-lg p-5 backdrop-blur-sm bg-white/30">
           <form
             onSubmit={(e) => {
               e.preventDefault();
               convert();
             }}
           >
-            <div className="w-full mb-1">
+            <div className="w-full mb-1 text-left">
               <InputBox
                 label="From"
                 amount={amount}
@@ -55,7 +58,7 @@ function App() {
                 swap
               </button>
             </div>
-            <div className="w-full mt-1 mb-4">
+            <div className="w-full mt-1 mb-4 text-left">
               <InputBox
                 label="To"
                 amount={convertedAmount}

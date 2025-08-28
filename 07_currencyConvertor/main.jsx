@@ -7,6 +7,5 @@ import InputBox from './components/InputBox.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
-    <InputBox/>
   </StrictMode>,
 )
