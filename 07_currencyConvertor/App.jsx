@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import "./App.css";
 import { InputBox } from "./components";
 import { useCurrencyInfo } from "./hooks";
@@ -13,10 +13,25 @@ function App() {
   const options = Object.keys(currencyInfo);
 
   const swap = () => {
-      const tempFrom = from;
-      const tempAmount = amount;
-      setFrom(to);
-      setTo(tempFrom);
+    const oldFrom = from;
+    const oldTo = to;
+
+    // Get the current A->B rate BEFORE swapping
+    const rateAB = currencyInfo?.[oldTo];
+
+    // Swap currencies (do NOT touch amount)
+    setFrom(oldTo);
+    setTo(oldFrom);
+
+    // Auto-calc using the inverse rate (B->A = 1 / (A->B))
+    if (rateAB) {
+      const amountNum = parseFloat(amount) || 0;
+      const rateBA = 1 / rateAB;
+      setConvertedAmount((amountNum * rateBA).toFixed(2));
+    } else {
+      // If we don't have the rate yet, clear the result
+      setConvertedAmount("");
+    }
   };
 
   const convert = () => {
@@ -27,7 +42,7 @@ function App() {
   return (
     <div
       className="w-screen h-screen flex flex-wrap justify-center items-center bg-cover bg-center bg-fixed bg-no-repeat"
-      style={{ backgroundImage: "url('/background.jpg')" }}
+      style={{ backgroundImage: "url('/background2.jpg')" }}
     >
       <div className="w-full">
         <div className="max-w-md mx-auto border border-gray-600 rounded-lg p-5 backdrop-blur-sm bg-white/30">
