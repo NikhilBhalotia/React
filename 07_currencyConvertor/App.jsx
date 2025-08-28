@@ -17,8 +17,6 @@ function App() {
       const tempAmount = amount;
       setFrom(to);
       setTo(tempFrom);
-      setAmount(convertedAmount);
-      setConvertedAmount(tempAmount);
   };
 
   const convert = () => {
