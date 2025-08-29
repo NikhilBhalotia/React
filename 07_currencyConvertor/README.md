@@ -1,9 +1,9 @@
-💱 Currency Converter Web App
+## 💱 Currency Converter Web App
 
 A real-time currency converter built with React, Tailwind CSS, and a free exchange rates API.
 Easily convert between multiple currencies with a clean and responsive UI.
 
-🚀 Features
+## 🚀 Features
 
 🔄 Real-Time Conversion – Fetches live exchange rates using Open Exchange Rates API
 .
@@ -16,7 +16,7 @@ Easily convert between multiple currencies with a clean and responsive UI.
 
 ⚡ Fast & Lightweight – Powered by React hooks (useState, useEffect) and a custom hook for data fetching.
 
-🛠️ Tech Stack
+## 🛠️ Tech Stack
 
 Frontend: React, JavaScript, Tailwind CSS
 
