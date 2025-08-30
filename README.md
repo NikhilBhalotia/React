@@ -82,4 +82,4 @@ Thanks to:
 ---
 
 ✨ Happy Coding! ✨  
-Made with 💻 & ☕️ by **Nikhil Jat**
+Made with 💻 & ☕️ by **Nikhil Bhalotia**
