@@ -41,15 +41,23 @@ Here you’ll find **detailed notes, hands-on projects, and examples** that refl
 
 This repository is structured into **modules** that build on each other. Each folder contains code and documentation for that topic.
 
-| Module              | Topics Covered                                |
-|---------------------|---------------------------------------------|
-| 01 - React Basics    | JSX, Components, Props, State               |
-| 02 - React Hooks     | useState, useEffect, useContext             |
-| 03 - Context API     | Global state management                     |
-| 04 - Routing         | React Router setup and navigation           |
-| 05 - Forms & Events  | Controlled components, form handling        |
-| 06 - Project 1       | A beginner React app using Hooks & Context  |
-| ...                 | (More projects and advanced concepts coming soon) |
+| Module                           | Topics Covered                                                        |
+|----------------------------------|----------------------------------------------------------------------|
+| 01 - React Basics                | JSX, Components, Props, State                                        |
+| 02 - Props in Depth              | Passing data between components, PropTypes, Default props            |
+| 03 - Tailwind CSS                | Tailwind setup, utility classes, responsive design                  |
+| 04 - React Hooks                 | useState, useEffect, useContext                                     |
+| 05 - Context API                 | Global state management with Context API                           |
+| 06 - Routing                     | React Router setup, Routes, Links, Nested Routes                   |
+| 07 - Forms & Events              | Controlled components, form handling, event binding                |
+| 08 - Project - Counter App       | A simple counter with increment, decrement, and reset functionality|
+| 09 - Project - Background Changer| Change background color dynamically using React & Hooks             |
+| 10 - Project - Password Generator| Random password generator with strength indicator                  |
+| 11 - Project - Currency Converter| Currency exchange app with API integration                        |
+| 12 - Project - Theme Switcher    | Light/Dark mode toggle with Context & Tailwind                     |
+| 13 - Project - Todo List         | Full-featured Todo app with CRUD, LocalStorage                     |
+| ...                              | (More projects and advanced concepts coming soon)                  |
+
 
 ---
 
