@@ -56,7 +56,7 @@ This repository is structured into **modules** that build on each other. Each fo
 | 11 - Project - Currency Converter| Currency exchange app with API integration                        |
 | 12 - Project - Theme Switcher    | Light/Dark mode toggle with Context & Tailwind                     |
 | 13 - Project - Todo List         | Full-featured Todo app with CRUD, LocalStorage                     |
-| ...                              | (More projects and advanced concepts coming soon)                  |
+| 14 - MegaProject - Blog          | Appwrite, Routing, Authentication, Slicing                         |
 
 
 ---
