@@ -17,7 +17,6 @@ function Post() {
       try {
         if (!slug) return;
         const p = await appwriteService.getPost(slug);
-        console.log("🔎 loaded post:", p);
         if (p) setPost(p);
         else navigate("/");
       } catch (err) {
@@ -62,13 +61,7 @@ function Post() {
 
   const imageUrl = fileId ? appwriteService.getFileView(fileId) : null;
 
-  // Prepare content: handle cases where content may be HTML, or escaped HTML (&lt;p&gt;...)
-  const rawContent =
-    typeof post.content === "string"
-      ? post.content
-      : String(post.content || "");
-
-  // Try to decode HTML entities if the content is escaped
+  // Decode HTML entities if the content is escaped
   const decodeHtmlEntities = (html) => {
     try {
       const doc = new DOMParser().parseFromString(html, "text/html");
@@ -78,14 +71,15 @@ function Post() {
     }
   };
 
+  const rawContent =
+    typeof post.content === "string"
+      ? post.content
+      : String(post.content || "");
   const decoded = decodeHtmlEntities(rawContent);
-
-  // Sanitize the decoded HTML (keeps valid HTML but strips dangerous stuff)
   const sanitized = DOMPurify.sanitize(decoded);
 
-  console.log("🧾 post.content (decoded):", decoded.slice(0, 300));
-  console.log("🔐 sanitized snippet:", sanitized.slice(0, 300));
-  console.log("📎 imageUrl:", imageUrl);
+  // 🔑 Extract logged-in user id safely
+  const loggedInUserId = userData?.$id || userData?.id;
 
   return (
     <div className="py-8">
@@ -96,11 +90,10 @@ function Post() {
           <img
             src={imageUrl}
             alt={post.title || "featured image"}
-            className="object-cover w-full mb-6 rounded-xl"
+            className="object-cover w-full mb-6 shadow-md rounded-xl"
           />
         )}
 
-        {/* Render sanitized HTML */}
         {sanitized ? (
           <div
             className="mb-6 prose max-w-none"
@@ -110,8 +103,8 @@ function Post() {
           <p className="mb-6 text-lg">{post.content}</p>
         )}
 
-        {/* Edit/Delete shown only to owner */}
-        {userData && userData.$id === post.userId && (
+        {/* ✅ Edit/Delete only if owner */}
+        {loggedInUserId === post.userId && (
           <div className="flex gap-4 mt-6">
             <Button onClick={() => navigate(`/edit-post/${post.$id}`)}>
               Edit
